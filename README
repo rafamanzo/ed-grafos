@@ -1,0 +1,8 @@
+Estruturas de dados para algoritmos em grafos.
+
+Baseado nas aulas de MAC0328 do IME-USP em 2011 com o professor José Coelho de Pina (www.ime.usp.br/~coelho)
+
+Siglas:
+
+* ma - matriz de adjacência
+* vla - vetor de listas de adjacência
