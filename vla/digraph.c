@@ -42,6 +42,24 @@ void DIGRAPHinsertA(Digraph G, Vertex v, Vertex w){
   G->A++;
 }
 
+void DIGRAPHremoveA(Digraph G, Vertex v, Vertex w){
+  link before, actual;
+
+  if(v==w) return;
+
+  before = NULL;
+  for(actual = G->adj[v]; actual != NULL; acual = actual->next){
+    if(actual->w == w){
+      before->next = actual->next;
+      free(actual);
+      return;
+    }else{
+      before = actual;
+    }
+  }
+
+} 
+
 void DIGRAPHshow(Digraph G){
   Vertex v;
   link n;
