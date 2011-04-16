@@ -1,6 +1,6 @@
 struct node{
   Vertex w;
-  link next;
+  struct node *next;
 };
 
 typedef struct node *link;
