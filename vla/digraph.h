@@ -1,5 +1,9 @@
+#define maxV 100
+#define INFINITO 101
+
 struct node{
   Vertex w;
+  int cst;
   struct node *next;
 };
 
@@ -21,4 +25,5 @@ void DIGRAPHshow(Digraph G);
 int DIGRAPHpath(Digraph G, Vertex s, Vertex t);
 
 static int lbl[maxV];
-static Vertex parnt[maxV]; 
+static Vertex parnt[maxV];
+static double cst[maxV];

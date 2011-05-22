@@ -2,6 +2,8 @@
 #include<stdio.h>
 #include "vertex.h"
 #include "digraph.h"
+#include "queue/item.h"
+#include "queue/queue.h"
 
 link NEW(Vertex w, link next){
   link n;
@@ -97,3 +99,33 @@ int DIGRAPHpath(Digraph G, Vertex s, Vertex t){
   if(lbl[t] == -1) return 0;
   else return 1;
 }
+
+void dijkstra(Digraph G, Vertex s, Vertex parnt[], double cst[]){
+  Vertex v, w; link p;
+  for (v = 0; v < G->V; v++) {
+    cst[v] = INFINITO;
+    parnt[v] = -1;
+  }
+  PQinit(G->V);
+  cst[s] = 0;
+  parnt[s] = s;
+  PQinsert(s);
+  while (!PQempty()) {
+    v = PQdelmin();
+    for(p=G->adj[v];p!=NULL;p=p->next)
+      if(cst[w=p->w]==INFINITO){
+        cst[w]=cst[v]+p->cst;
+        parnt[w]=v;
+        PQinsert(w);
+      }else if(cst[w]>cst[v]+p->cst){
+        cst[w]=cst[v]+p->cst
+        parnt[w] = v;
+        PQdec(w);
+      }
+
+      PQfree();
+  }
+}
+
+
+
